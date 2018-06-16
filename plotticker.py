@@ -1,8 +1,9 @@
 from bokeh.plotting import figure, output_file, show, save
 import os
+import sys
 
 def bt(x,y,t,m,outputfilepath):
-  #print('Hello World')
+  #print('Bokeh Plot', file=sys.stderr)
   
   if os.path.isfile(outputfilepath):
     os.unlink(outputfilepath)
