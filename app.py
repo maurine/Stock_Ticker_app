@@ -3,6 +3,7 @@ import sys
 import quandl
 import pandas
 import re
+import os
 import plotticker as plotbt
 
 #print('app.py is working')
@@ -10,6 +11,9 @@ import plotticker as plotbt
 app = Flask(__name__)
 
 app.vars={}
+
+outputfilepath=os.path.join('templates','lines.html')
+print(outputfilepath)
 
 @app.route('/')
 def index():
@@ -42,7 +46,7 @@ def userinput():
     print(df_all['date'])
     x=[x.day for x in df_all['date'].tolist()]
     y=df_all['close'].values.tolist()
-    plotbt.bt(x,y,app.vars['name'],app.vars['date'],'templates\lines.html')
+    plotbt.bt(x,y,app.vars['name'],app.vars['date'],outputfilepath)
     
     #output data
     return render_template('lines.html', d1=app.vars['name'],d2=app.vars['date'])
