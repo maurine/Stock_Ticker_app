@@ -23,6 +23,10 @@ def index():
 def about():
   return render_template('about.html')
 
+@app.route('/lines')
+def about():
+  return render_template('lines.html')
+
 @app.route('/userinput',methods=['GET','POST'])
 def userinput():
   if request.method == 'GET':
