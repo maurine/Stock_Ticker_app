@@ -12,6 +12,7 @@ bokeh = "*"
 dill = "*"
 "jinja2" = "*"
 simplejson = "*"
+quandl = "*"
 
 [dev-packages]
 
