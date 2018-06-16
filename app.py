@@ -9,6 +9,7 @@ import plotticker as plotbt
 #print('app.py is working')
 
 app = Flask(__name__)
+app.config['TEMPLATES_AUTO_RELOAD']=True
 
 app.vars={}
 
@@ -43,7 +44,8 @@ def userinput():
     df_all=pandas.DataFrame(data,columns=['ticker','date','open','high','low','close','vol','exd','spl','adjopen','adjhigh','adjlow','adjclose','adjvol'])
 	
     #create unique lines.html file
-    filename='lines_%s_%s.html'%(app.vars['name'],app.vars['date'])
+    filename='lines.html'
+    #filename='lines_%s_%s.html'%(app.vars['name'],app.vars['date'])
     outputfilepath=os.path.join('templates',filename)
     #print(outputfilepath, file=sys.stderr)
     #print(os.path.isfile(outputfilepath), file=sys.stderr)
